@@ -1,7 +1,9 @@
 name: Q3 - Archiver Q3.java
 
 on:
-  workflow_dispatch:  
+  push:
+    branches:
+      - main  
 
 jobs:
   archiver-et-pousser:
