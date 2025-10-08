@@ -1,7 +1,9 @@
 name: Q2 - Créer archive TOTO
 
 on:
-  workflow_dispatch:  # permet de lancer le workflow manuellement
+  push:
+    branches:
+      - main  
 
 jobs:
   creer-et-pousser:
