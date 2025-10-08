@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout du dépôt
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true  # garde le token Git pour le push
 
     - name: Copier TOTO.txt vers Q1_archive_TOTO.txt
       run: cp TOTO.txt Q1_archive_TOTO.txt
@@ -23,3 +25,6 @@ jobs:
       run: |
         git add Q1_archive_TOTO.txt
         git commit -m "Ajout de Q1_archive_TOTO.txt via workflow" || echo "Pas de changement à committer"
+
+    - name: Pousser les modifications
+      run: git push origin HEAD
