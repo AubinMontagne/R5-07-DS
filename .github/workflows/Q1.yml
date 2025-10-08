@@ -1,7 +1,9 @@
 name: Copier TOTO et pousser Q1_archive
 
 on:
-  workflow_dispatch:  # permet de lancer manuellement le workflow
+  push:
+    branches:
+      - main  
 
 jobs:
   copier-et-pousser:
