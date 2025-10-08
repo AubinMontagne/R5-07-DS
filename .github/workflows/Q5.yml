@@ -3,7 +3,7 @@ name: Q5 - Archiver Q5.java
 on:
   push:
     branches:
-      - main  # ou la branche sur laquelle tu commit
+      - main 
 
 jobs:
   archiver-et-pousser:
