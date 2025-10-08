@@ -1,0 +1,36 @@
+name: Q5 - Archiver Q5.java
+
+on:
+  workflow_dispatch:  # déclenchement manuel
+
+jobs:
+  archiver-et-pousser:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du dépôt
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+
+    - name: Créer Q5_archive_date.txt
+      run: |
+        DATE=$(date '+%d-%m-%Y')
+        FILENAME="Q5_archive_$DATE.txt"
+        echo "Nom et prénom : Aubin Montagne" > $FILENAME
+        echo "" >> $FILENAME
+        echo "Contenu de Q5.java :" >> $FILENAME
+        cat Q5.java >> $FILENAME
+
+    - name: Configurer Git
+      run: |
+        git config --global user.name "AubinMontagne"
+        git config --global user.email "aubin.montagne@etu.univ-lehavre.fr"
+
+    - name: Ajouter et committer le fichier
+      run: |
+        git add Q5_archive_*.txt
+        git commit -m "Ajout de $FILENAME via workflow" || echo "Pas de changement à committer"
+
+    - name: Pousser les modifications
+      run: git push origin HEAD
