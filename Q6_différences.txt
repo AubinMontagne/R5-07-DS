@@ -1,1 +1,6 @@
-Aucun fichier précédent pour comparaison
+23a24
+>             System.out.println("test");
+29c30
+<  23  70 591 Q6.java
+---
+>  24  71 631 Q6.java
