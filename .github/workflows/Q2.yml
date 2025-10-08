@@ -1,9 +1,10 @@
 name: Q2 - Créer archive TOTO
 
 on:
-  push:
-    branches:
-      - main  
+  workflow_dispatch:  
+  #push:
+    #branches:
+      #- main  
 
 jobs:
   creer-et-pousser:
