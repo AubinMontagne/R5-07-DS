@@ -1,9 +1,10 @@
 name: Copier TOTO et pousser Q1_archive
 
 on:
-  push:
-    branches:
-      - main  
+  workflow_dispatch:  
+  #push:
+    #branches:
+      #- main  
 
 jobs:
   copier-et-pousser:
