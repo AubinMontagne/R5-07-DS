@@ -1,9 +1,11 @@
 name: Q6 - Archiver Q6.java et générer différences
 
 on:
-  push:
-    branches:
-      - main 
+  workflow_dispatch:  
+  #push:
+    #branches:
+      #- main  
+
 
 jobs:
   archiver-et-diff:
