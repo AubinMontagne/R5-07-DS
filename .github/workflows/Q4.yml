@@ -1,7 +1,9 @@
 name: Q4 - Archiver Q4.java
 
 on:
-  workflow_dispatch:  # déclenchement manuel
+  push:
+    branches:
+      - main  # ou la branche sur laquelle tu commit
 
 jobs:
   archiver-et-pousser:
