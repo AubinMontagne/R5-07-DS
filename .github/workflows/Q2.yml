@@ -1,0 +1,37 @@
+name: Q2 - Créer archive TOTO
+
+on:
+  workflow_dispatch:  # permet de lancer le workflow manuellement
+
+jobs:
+  creer-et-pousser:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du dépôt
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true  
+
+    - name: Créer Q2_archive_TOTO.txt
+      run: |
+        echo "Nom et prénom : Aubin Montagne" > Q2_archive_TOTO.txt
+        echo "Date et heure : $(date '+%Y-%m-%d %H:%M:%S')" >> Q2_archive_TOTO.txt
+        echo "" >> Q2_archive_TOTO.txt
+        echo "Contenu de TOTO.txt :" >> Q2_archive_TOTO.txt
+        cat TOTO.txt >> Q2_archive_TOTO.txt
+        echo "" >> Q2_archive_TOTO.txt
+        echo "Taille de TOTO.txt : $(stat -c%s TOTO.txt) octets" >> Q2_archive_TOTO.txt
+
+    - name: Configurer Git
+      run: |
+        git config --global user.name "AubinMontagne"
+        git config --global user.email "aubin.montagne@etu.univ-lehavre.fr"
+
+    - name: Ajouter et committer le nouveau fichier
+      run: |
+        git add Q2_archive_TOTO.txt
+        git commit -m "Ajout de Q2_archive_TOTO.txt via workflow" || echo "Pas de changement à committer"
+
+    - name: Pousser les modifications
+      run: git push origin HEAD
