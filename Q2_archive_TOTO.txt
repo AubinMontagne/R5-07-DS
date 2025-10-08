@@ -1,0 +1,7 @@
+Nom et prénom : Aubin Montagne
+Date et heure : 2025-10-08 13:45:16
+
+Contenu de TOTO.txt :
+test
+
+Taille de TOTO.txt : 5 octets
