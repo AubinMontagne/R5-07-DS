@@ -1,9 +1,10 @@
 name: Q5 - Archiver Q5.java
 
 on:
-  push:
-    branches:
-      - main 
+  workflow_dispatch:  
+  #push:
+    #branches:
+      #- main  
 
 jobs:
   archiver-et-pousser:
